@@ -10,9 +10,9 @@ const WelcomeSplash = ({ onComplete }) => {
     const outerTimer = setTimeout(() => {
       setIsAnimating(true);
       innerTimer = setTimeout(() => {
-        setIsVisible(false); // completely removes splash, no black screen left
+        setIsVisible(false);
         if (onComplete) onComplete();
-      }, 500); // matches smoother exit animation
+      }, 500);
     }, 3000);
 
     return () => {
@@ -74,7 +74,7 @@ const WelcomeSplash = ({ onComplete }) => {
           isAnimating ? 'animate-slide-up-fade' : ''
         }`}
         style={{
-          background: `linear-gradient(135deg, #433751, #2F576E, #748B9C, #F0E3E3)`
+          background: 'linear-gradient(135deg, #433751, #2F576E, #748B9C, #F0E3E3)'
         }}
       >
         {/* Floating Particles */}
@@ -90,35 +90,35 @@ const WelcomeSplash = ({ onComplete }) => {
                 animationDelay: `${Math.random() * 3}s`
               }}
             >
-              {i % 3 === 0 && <Sparkles className="w-3 h-3 text-[#F0E3E3] opacity-70" />}
-              {i % 3 === 1 && <Activity className="w-2 h-2 text-[#748B9C] opacity-70" />}
-              {i % 3 === 2 && <div className="w-2 h-2 bg-[#2F576E] rounded-full opacity-50" />}
+              {i % 3 === 0 && <Sparkles className="w-3 h-3 text-white opacity-70" />}
+              {i % 3 === 1 && <Activity className="w-2 h-2 text-white opacity-70" />}
+              {i % 3 === 2 && <div className="w-2 h-2 bg-white rounded-full opacity-50" />}
             </div>
           ))}
         </div>
 
         {/* Decorative Icons */}
         <div className="absolute top-10 sm:top-16 left-6 sm:left-12 animate-pulse">
-          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-[#F0E3E3]" />
+          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
         </div>
         <div className="absolute top-8 sm:top-12 right-8 sm:right-16 animate-pulse" style={{ animationDelay: '1s' }}>
-          <Brain className="w-5 h-5 sm:w-7 sm:h-7 text-[#748B9C]" />
+          <Brain className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
         </div>
         <div className="absolute bottom-16 sm:bottom-24 left-12 sm:left-20 animate-pulse" style={{ animationDelay: '2s' }}>
-          <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-[#433751]" />
+          <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
         </div>
 
         {/* Content */}
         <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Title Section */}
           <div className="text-center mb-6 sm:mb-12 mt-8 sm:mt-16 animate-fade-in-title">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F0E3E3] mb-2 sm:mb-4 tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 tracking-tight leading-tight">
               Welcome to
             </h1>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#1a1124] via-[#433751] to-[#2F576E] bg-clip-text text-transparent mb-3 sm:mb-6 animate-shimmer-text">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-3 sm:mb-6 animate-shimmer-text">
               VirtuaTwin
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#F0E3E3] font-light max-w-xl lg:max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light max-w-xl lg:max-w-2xl mx-auto px-2">
               Your Intelligent Digital Health Companion
             </p>
           </div>
@@ -126,10 +126,10 @@ const WelcomeSplash = ({ onComplete }) => {
           {/* Main Virtual Character */}
           <div className="relative w-full max-w-md sm:max-w-xl lg:max-w-2xl h-40 sm:h-56 md:h-64 lg:h-72 flex items-center justify-center mb-6 sm:mb-10">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-[#748B9C]/30 rounded-full blur-3xl animate-pulse-glow" />
+              <div className="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-white opacity-20 rounded-full blur-3xl animate-pulse-glow" />
             </div>
 
-            <svg className="w-32 h-32 animate-hologram" viewBox="0 0 100 100" fill="none">
+            <svg className="w-32 h-32 sm:w-40 sm:h-40 animate-hologram" viewBox="0 0 100 100" fill="none">
               <circle cx="50" cy="50" r="30" stroke="#2F576E" strokeWidth="3" fill="rgba(47,87,110,0.3)" />
               <circle cx="50" cy="50" r="20" stroke="#748B9C" strokeWidth="2" fill="rgba(116,139,156,0.3)" />
               <circle cx="50" cy="50" r="10" fill="#F0E3E3" />
@@ -139,10 +139,12 @@ const WelcomeSplash = ({ onComplete }) => {
                   cx="50"
                   cy="50"
                   r="2"
-                  className="animate-energy-pulse"
                   fill="#433751"
                   opacity="0.8"
-                  style={{ animationDelay: `${i * 0.5}s` }}
+                  style={{ 
+                    animation: 'energyPulse 2s ease-out infinite',
+                    animationDelay: `${i * 0.5}s` 
+                  }}
                 />
               ))}
             </svg>
@@ -150,28 +152,28 @@ const WelcomeSplash = ({ onComplete }) => {
 
           {/* Tags */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 px-4">
-            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-[#433751]/40 backdrop-blur-sm rounded-full text-[#F0E3E3] text-xs sm:text-sm font-medium border border-[#433751]/50 shadow-lg">
+            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-[#748B9C] text-xs sm:text-sm font-medium border border-white border-opacity-30 shadow-lg">
               Real-Time Analysis
             </span>
-            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-[#2F576E]/40 backdrop-blur-sm rounded-full text-[#F0E3E3] text-xs sm:text-sm font-medium border border-[#2F576E]/50 shadow-lg">
+            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-[#748B9C] text-xs sm:text-sm font-medium border border-white border-opacity-30 shadow-lg">
               Smart Insights
             </span>
-            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-[#748B9C]/40 backdrop-blur-sm rounded-full text-[#F0E3E3] text-xs sm:text-sm font-medium border border-[#748B9C]/50 shadow-lg">
+            <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-[#748B9C] text-xs sm:text-sm font-medium border border-white border-opacity-30 shadow-lg">
               Personalized Care
             </span>
           </div>
 
           {/* Loading Bar */}
-          <div className="w-48 sm:w-64 md:w-80 h-1 sm:h-1.5 bg-[#433751]/40 rounded-full overflow-hidden border border-[#2F576E]/40 shadow-inner">
+          <div className="w-48 sm:w-64 md:w-80 h-1 sm:h-1.5 bg-white bg-opacity-20 rounded-full overflow-hidden border border-white border-opacity-20 shadow-inner">
             <div
-              className="h-full bg-gradient-to-r from-[#433751] via-[#748B9C] to-[#2F576E] rounded-full shadow-lg"
+              className="h-full bg-gradient-to-r from-white via-gray-200 to-white rounded-full shadow-lg"
               style={{
                 animation: 'loadingBar 3.5s ease-in-out forwards'
               }}
             />
           </div>
 
-          <p className="text-[#F0E3E3] text-xs sm:text-sm mt-3 sm:mt-4 animate-pulse">
+          <p className="text-white text-xs sm:text-sm mt-3 sm:mt-4 animate-pulse">
             Initializing your digital health companion...
           </p>
         </div>
